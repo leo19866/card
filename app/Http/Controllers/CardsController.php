@@ -27,12 +27,12 @@ class CardsController extends Controller
     	return view('cards.index',compact('cards'));
     }
 
-    public function show($id)
+    public function show(Card $card)
     {
 
+        $card->load('notes.user');
 
-        $card = Card::findOrfail($id);
-
+        //return $card->notes[0]->user;
 
         return view('cards.show',compact('card'));
 

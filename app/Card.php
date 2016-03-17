@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Note;
 use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
@@ -10,5 +11,10 @@ class Card extends Model
     {
         return $this->hasMany('App\Note');
 
+    }
+
+    public function addnote(Note $note)
+    {
+    	return $this->notes()->save($note);
     }
 }
